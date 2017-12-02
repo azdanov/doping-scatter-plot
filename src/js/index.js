@@ -4,7 +4,7 @@ import data from '../cyclist-data.json';
 
 console.table(data);
 
-const w = 900;
+const w = 700;
 const h = 600;
 const padding = 40;
 const offsetSeconds = 5;
@@ -50,20 +50,8 @@ svg
   .enter()
   .append('circle')
   .attr('cx', d => xScale(d.Year) + xScale.bandwidth() / 2)
-  .attr('cy', d => {
-    return yScale(parseTime(d.Time))
-  })
+  .attr('cy', d => yScale(parseTime(d.Time)))
   .attr('r', 5);
-
-svg
-  .selectAll('text')
-  .data(data)
-  .enter()
-  .append('text')
-  .classed('cyclist', true)
-  .text(d => d.Name)
-  .attr('x', d => xScale(d.Year) + xScale.bandwidth() / 2 + 10)
-  .attr('y', d => yScale(parseTime(d.Time)) + 4);
 
 svg
   .append('g')
@@ -76,3 +64,20 @@ svg
   .attr('class', 'axis')
   .attr('transform', `translate(${padding},0)`)
   .call(yAxis);
+
+const infoPanel = d3
+  .select('body')
+  .append('div')
+  .style('height', `${h - padding * 2}px`)
+  .classed('info', true);
+
+infoPanel.append('h2').text(`Top ${data.length} cyclists`);
+
+infoPanel
+  .selectAll('p')
+  .data(data)
+  .enter()
+  .append('p')
+  .text((d, i) => `${i + 1}. ${d.Name}`)
+  .append('span')
+  .text(d => `${d.Time}`);
