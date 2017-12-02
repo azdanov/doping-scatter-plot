@@ -1,8 +1,27 @@
 body {
+  font: 12px sans-serif;
+}
+
+p,
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+  margin: 10px 0 0 0;
+}
+
+header p {
+  margin-top: 7px;
+  margin-bottom: -20px;
+}
+
+main {
   align-items: center;
   display: flex;
-  font: 12px sans-serif;
   justify-content: center;
+  margin: 0 auto;
 }
 
 circle {
@@ -16,9 +35,8 @@ circle {
 }
 
 .info h2 {
-  margin-top: 0;
   margin-bottom: 5px;
-  text-align: center;
+  margin-top: 0;
 }
 
 .info p {
@@ -26,7 +44,12 @@ circle {
   justify-content: space-between;
   margin: 0;
   padding: 6px 4px;
-  width: 25ch;
+  text-wrap: none;
+}
+
+.info span {
+  margin-left: 10px;
+  display: block;
 }
 
 .info p:hover {

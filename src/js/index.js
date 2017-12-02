@@ -38,8 +38,11 @@ const yAxis = d3
   .ticks(10)
   .tickFormat(formatTime);
 
+d3.select('h1').text(`Fastest times up Alpe d'Huez`);
+d3.select('p').text('With additional information on doping allegations.');
+
 const svg = d3
-  .select('body')
+  .select('main')
   .append('svg')
   .attr('width', w)
   .attr('height', h);
@@ -66,7 +69,7 @@ svg
   .call(yAxis);
 
 const infoPanel = d3
-  .select('body')
+  .select('main')
   .append('div')
   .style('height', `${h - padding * 2}px`)
   .classed('info', true);
