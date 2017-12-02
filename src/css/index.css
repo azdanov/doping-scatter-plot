@@ -1,14 +1,13 @@
 body {
+  align-items: center;
+  display: flex;
   font: 10px sans-serif;
+  justify-content: center;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+circle {
+  fill: red;
+  stroke: black;
+  opacity: 0.6;
 }
 
-.dot {
-  stroke: #000;
-}
