@@ -6,6 +6,7 @@ const w = 700;
 const h = 600;
 const padding = 40;
 const offsetSeconds = 5;
+const circleRadius = 5;
 
 const parseTime = d3.timeParse('%M:%S');
 
@@ -47,6 +48,36 @@ const svg = d3
   .attr('width', w)
   .attr('height', h);
 
+const onMouseOver = d => {
+  svg
+    .selectAll('circle')
+    .classed(
+      'selected',
+      cd => `${d.Name} + ${d.Year}` === `${cd.Name} + ${cd.Year}`,
+    )
+    .attr(
+      'r',
+      cd =>
+        `${d.Name} + ${d.Year}` === `${cd.Name} + ${cd.Year}`
+          ? circleRadius + 2
+          : circleRadius,
+    );
+  d3
+    .select('.cyclist-stats')
+    .text(`${d.Name} (${d.Nationality}) - ${d.Time} - ${d.Year}`)
+    .classed('cyclist-info--visible', true);
+};
+
+const onMouseOut = () => {
+  svg.selectAll('circle').classed('selected', () => {
+    svg
+      .selectAll('circle')
+      .classed('selected', () => false)
+      .attr('r', circleRadius);
+  });
+  d3.select('.cyclist-stats').classed('cyclist-info--visible', false);
+};
+
 svg
   .selectAll('circle')
   .data(data)
@@ -54,7 +85,9 @@ svg
   .append('circle')
   .attr('cx', d => xScale(d.Year) + xScale.bandwidth() / 2)
   .attr('cy', d => yScale(parseTime(d.Time)))
-  .attr('r', 5);
+  .attr('r', circleRadius)
+  .on('mouseover', onMouseOver)
+  .on('mouseout', onMouseOut);
 
 svg
   .append('g')
@@ -81,24 +114,8 @@ infoPanel
   .data(data)
   .enter()
   .append('p')
-  .on('mouseover', d => {
-    svg
-      .selectAll('circle')
-      .classed(
-        'selected',
-        cd => `${d.Name} + ${d.Year}` === `${cd.Name} + ${cd.Year}`,
-      );
-    d3
-      .select('.cyclist-stats')
-      .text(`${d.Name} (${d.Nationality}) - ${d.Time} - ${d.Year}`)
-      .classed('cyclist-info--visible', true);
-  })
-  .on('mouseout', () => {
-    svg.selectAll('circle').classed('selected', () => {
-      svg.selectAll('circle').classed('selected', () => false);
-    });
-    d3.select('.cyclist-stats').classed('cyclist-info--visible', false);
-  })
+  .on('mouseover', onMouseOver)
+  .on('mouseout', onMouseOut)
   .text(d => `${d.Place}. ${d.Name} (${d.Year})`)
   .append('span')
   .text(d => `${d.Time}`);
