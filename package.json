@@ -1,19 +1,19 @@
 {
-  "name": "doping-scatter-plot",
+  "name": "scatter-plot",
   "version": "1.0.0",
-  "description": "D3.js Doping scatter plot made for FreeCodeCamp",
+  "description": "D3.js Scatter plot made for FreeCodeCamp",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/azdanov/doping-scatter-plot.git"
+    "url": "git+https://github.com/azdanov/scatter-plot.git"
   },
   "keywords": [],
   "author": "Anton Zdanov",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/azdanov/doping-scatter-plot/issues"
+    "url": "https://github.com/azdanov/scatter-plot/issues"
   },
-  "homepage": "https://github.com/azdanov/doping-scatter-plot#readme",
+  "homepage": "https://github.com/azdanov/scatter-plot#readme",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.32",

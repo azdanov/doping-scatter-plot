@@ -2,8 +2,6 @@ import * as d3 from 'd3';
 import '../css/index.css';
 import data from '../cyclist-data.json';
 
-console.table(data);
-
 const w = 700;
 const h = 600;
 const padding = 40;
@@ -17,6 +15,8 @@ const startTime = parseTime(d3.min(data, d => d.Time));
 const endTime = parseTime(d3.max(data, d => d.Time));
 
 const eventYears = [...new Set(data.map(d => d.Year))].sort((a, b) => a - b);
+
+const [startYear, endYear] = d3.extent(eventYears, d => d);
 
 const xScale = d3
   .scaleBand()
@@ -39,7 +39,7 @@ const yAxis = d3
   .tickFormat(formatTime);
 
 d3.select('h1').text(`Fastest times up Alpe d'Huez`);
-d3.select('p').text('With additional information on doping allegations.');
+d3.select('p').text(`Data from year ${startYear} up to ${endYear}.`);
 
 const svg = d3
   .select('main')
@@ -71,7 +71,7 @@ svg
 const infoPanel = d3
   .select('main')
   .append('div')
-  .style('height', `${h - padding * 2}px`)
+  .style('height', `${h - padding * 1.7}px`)
   .classed('info', true);
 
 infoPanel.append('h2').text(`Top ${data.length} cyclists`);
@@ -81,6 +81,24 @@ infoPanel
   .data(data)
   .enter()
   .append('p')
-  .text((d, i) => `${i + 1}. ${d.Name}`)
+  .on('mouseover', d => {
+    svg
+      .selectAll('circle')
+      .classed(
+        'selected',
+        cd => `${d.Name} + ${d.Year}` === `${cd.Name} + ${cd.Year}`,
+      );
+    d3
+      .select('.cyclist-stats')
+      .text(`${d.Name} (${d.Nationality}) - ${d.Time} - ${d.Year}`)
+      .classed('cyclist-info--visible', true);
+  })
+  .on('mouseout', () => {
+    svg.selectAll('circle').classed('selected', () => {
+      svg.selectAll('circle').classed('selected', () => false);
+    });
+    d3.select('.cyclist-stats').classed('cyclist-info--visible', false);
+  })
+  .text(d => `${d.Place}. ${d.Name} (${d.Year})`)
   .append('span')
   .text(d => `${d.Time}`);
