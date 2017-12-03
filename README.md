@@ -1,2 +1,5 @@
-# doping-scatter-plot
-D3.js Doping scatter plot made for FreeCodeCamp
+# Scatter plot
+
+D3.js Scatter plot made for FreeCodeCamp.
+
+[Live version](https://azdanov.js.org/scatter-plot/)
