@@ -1,105 +1,119 @@
 body {
-  align-items: center;
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiPjwvcmVjdD4KPC9zdmc+');
-  display: flex;
-  font: 12px sans-serif;
-  justify-content: center;
+    align-items: center;
+    display: flex;
+    font: 12px sans-serif;
+    /* stylelint-disable */
+    font-family: "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times",
+        "Source Serif Pro", serif;
+    /* stylelint-enable */
+
+    justify-content: center;
 }
 
 p,
 h1,
 h2 {
-  text-align: center;
+    text-align: center;
 }
 
 header {
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  right: 0;
-  top: 5px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 h1 {
-  margin: 5px 0 0 0;
+    margin: 0;
 }
 
 header p {
-  margin: 8px 0 0;
+    margin: 8px 0 0;
 }
 
 .container {
-  background-color: #fff;
-  border-radius: 10px;
-  margin-top: 20px;
-  max-width: 1060px;
-  position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 1060px;
+    position: relative;
 }
 
 main {
-  align-items: flex-start;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto 0 20px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0 20px;
 }
 
 circle {
-  opacity: 0.6;
-  fill: #2196f3;
-  stroke: #212121;
+    opacity: 0.6;
+    fill: #2196f3;
+    stroke: #212121;
 }
 
 svg {
-  z-index: 1;
+    z-index: 1;
 }
 
 .selected {
-  opacity: 1;
-  fill: #ffc107;
-  stroke: #212121;
+    opacity: 1;
+    fill: #ffc107;
+    stroke: #212121;
 }
 
 .cyclist-info {
-  left: calc(50% - 15ch);
-  position: absolute;
-  right: 0;
-  top: 10%;
-  visibility: hidden;
+    left: calc(50% - 15ch);
+    position: absolute;
+    right: 0;
+    top: 10%;
+    visibility: hidden;
 }
 
 .cyclist-info--visible {
-  visibility: visible;
+    visibility: visible;
 }
 
 .cyclist-stats {
-  border-bottom: 1px solid #eee;
-  display: inline-block;
-  margin: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: inline-block;
+    margin: 12px 0;
 }
 
 .info {
-  margin: 15px 20px 0 0;
-  overflow-y: scroll;
-  z-index: 1;
+    margin: 15px 20px 0 0;
+    overflow-y: scroll;
+    z-index: 1;
 }
 
 .info h2 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 .info p {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 6px 4px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 6px 4px;
 }
 
 .info span {
-  display: block;
-  margin-left: 10px;
+    display: block;
+    margin-left: 10px;
 }
 
 .info p:hover {
-  background: #f5f5f5;
+    background: #f5f5f5;
+}
+
+.footer-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+}
+
+.footer-info small {
+    display: block;
 }
