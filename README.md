@@ -33,4 +33,5 @@ Source: [Ammattipyöräily](http://www.fillarifoorumi.fi/forum/showthread.php?38
 
 ## License
 
-[Unlicense](https://unlicense.org)
+[MIT](https://opensource.org/licenses/MIT)
+
