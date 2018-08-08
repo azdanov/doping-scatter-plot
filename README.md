@@ -4,7 +4,7 @@ D3.js Scatter Plot made for FreeCodeCamp.
 
 ![Chart](https://res.cloudinary.com/anton-zdanov/image/upload/q_auto/v1513065709/Screen_Shot_2017-12-12_at_10.00.50_vla4uk.png)
 
-[Live version](https://azdanov.js.org/scatter-plot/)
+[Live version](https://azdanov.github.io/scatter-plot/)
 
 ## Tools
 
